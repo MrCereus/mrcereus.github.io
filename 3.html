@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+   <head>
+       <meta charset="utf-8">
+        <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">  
+        <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+        <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="layer/layer.js"></script>
+        <title>123</title>
+   </head>
+   <body style="height: 100%; margin: 0">
+   	<!--
+    <div class="navbar-header">
+        <a class="navbar-brand" href="#">会场实时监控系统</a>
+    </div>
+    <div>
+        <ul class="nav nav-tabs">
+        <li><a href="final.html">会场人数</a></li>
+        <li><a href="1.html">拥堵预警</a></li>
+        <li class="active"><a href="#">人员分类</a></li>
+        </ul>
+    </div>
+-->
+       <div id="container" style="height: 100%"></div>
+       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
+       <script type="text/javascript">
+            var dom = document.getElementById("container");
+            var myChart = echarts.init(dom);
+            var app = {};
+            option = null;
+             var data = {
+                "name": "人员类型",
+                "children": [{
+                        "name": "工作人员",
+                        "children": [{
+                                "name": "第一天",
+                            },
+                            {
+                                "name": "第二天",
+                            },
+                            {
+                                "name": "第三天",
+                                "children": [{
+                                        "name": "27434",
+                                    },
+                                    {
+                                        "name": "12345",
+                                    },
+                                    {
+                                        "name": "21323",
+                                    },
+                                    {
+                                        "name": "23786",
+                                    },
+                                    {
+                                        "name": "12432",
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "22223",
+                            },
+                            {
+                                "name": "23111",
+                            },
+                            {
+                                "name": "24114",
+                            }
+                        ]
+                    },
+                    {
+                        "name": "参赛者",
+                        "children": [{
+                                "name": "黑客大赛",
+                                "children": [{
+                                        "name": "34244",
+                                    },
+                                    {
+                                        "name": "21321",
+                                    },
+                                    {
+                                        "name": "23123",
+                                    },
+                                    {
+                                        "name": "23121",
+                                    },
+                                    {
+                                        "name": "23122",
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "12131",
+                            },
+                            {
+                                "name": "23556",
+                            }
+                        ]
+                    }
+                ]
+            };
+             var option = {
+                 title: [
+                     {
+                         text: '机器学习作业',
+                         x: 'center',
+                         y: '8%',
+                         subtext: '计科1707 张由甲/计科1705 杨逸飞/计科1707 盛宇轩',
+                         textStyle: {
+                             fontSize: 40
+                         }
+                     }
+                 ],
+                 tooltip: {
+                     trigger: 'axis',
+                     axisPointer: {
+                         type: 'shadow'
+                     }
+                 },
+                 series: [
+                    {
+            						type: 'tree',
+            						data: [data],
+            						top: '10%',
+            						bottom: '5%',
+            						left:'1%',
+            						right:'1%',
+            						layout: 'radial',
+            						symbol: 'circle',
+            						symbolSize: 60,
+            						expandAndCollapse:true,
+            						initialTreeDepth: 0,
+            						animationDurationUpdate: 750,
+            						label:{
+            							show:true,
+            							position:'inside'
+            						}
+
+            					}
+                 ]
+             };;
+            if (option && typeof option === "object") {
+                myChart.setOption(option, true);
+            }
+            myChart.on('click', function (params) {
+            if(params.name=="21321"){
+            	//window.open("1.html")
+            	layer.open({
+  					type: 2,
+  					title: false,
+  					area: ['900px', '650px'],
+  					closeBtn: 0,
+  					shadeClose: true,
+  					fixed: false, //不固定
+  					maxmin: true,
+  					skin: 'layui-layer-nobg',
+  					closeBtn: 1,
+  					content: 'final.html'
+				});
+            }
+            else if(params.name=="23123"){
+            	layer.open({
+  					type: 2,
+  					title: false,
+  					area: ['900px', '650px'],
+  					closeBtn: 0,
+  					shadeClose: true,
+  					fixed: false, //不固定
+  					maxmin: true,
+  					skin: 'layui-layer-nobg',
+  					closeBtn: 1,
+  					content: '1.html'
+				});
+            }
+        });
+       </script>
+   </body>
+</html>

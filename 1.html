@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+   <head>
+       <meta charset="utf-8">
+        <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">  
+        <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+        <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        
+   </head>
+   <body style="height: 100%; margin: 0">
+    <!--
+    <div class="navbar-header">
+        <a class="navbar-brand" href="#">会场实时监控系统</a>
+    </div>
+    <div>
+        <ul class="nav nav-tabs">
+        <li><a href="final.html">会场人数</a></li>
+        <li class="active"><a href="#">拥堵预警</a></li>
+        <li><a href="3.html">人员分类</a></li>
+        </ul>
+    </div>
+-->
+       <div id="container" style="height: 100%"></div>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
+       <script type="text/javascript">
+            var dom = document.getElementById("container");
+            var myChart = echarts.init(dom);
+            var app = {};
+            option = null;
+             var option = {
+                 title: [
+                     {
+                         text: '拥堵预警',
+                         x: 'center',
+                         y: '8%',
+                         //subtext: 'ChinaVis',
+                         textStyle: {
+                             fontSize: 40
+                         }
+                     }
+                 ],
+                 tooltip: {
+                     trigger: 'axis',
+                     axisPointer: {
+                         type: 'shadow'
+                     }
+                 },
+                 legend: [{
+                         data: ['room1', 'room2'],
+                         x: '25%',
+                         y: '60%',
+                         top:'28%'
+                     },
+                 ],
+                 grid: [{
+                         left: '1%',
+                         right: '1%',
+                         top: '20%',
+                         bottom: '13%',
+                         containLabel: true
+                     },
+                 ],
+                 xAxis: [{
+                        type: 'category',
+                        data: ['分会场A','分会场B','分会场C','分会场D','主会场','展厅','扶梯北','扶梯南','厕所1','厕所2','厕所3','餐厅'],
+                        axisPointer: {
+                            type: 'shadow'
+                        }
+                    },
+                 ],
+                 yAxis: [{
+                         type: 'value',
+                     },
+                 ],
+                 series: [
+                  {
+                    markLine: {
+                        data: [
+                        [
+                            {
+                                name:'预警线',
+                                itemStyle:{
+                                    normal:{
+                                        show:true,
+                                        color:'#c23531'
+                                    }
+                                },
+                                coord:[0,250]
+                            },
+                            {
+                                coord:[10,250]
+                            }
+                            ],
+                          ]
+                    },
+                   itemStyle:{
+                    normal:{
+                        color:'#2f4554' 
+                            } 
+                        },
+                         name: '',
+                         type: 'bar',
+                         barWidth : 30,//柱图宽度
+                         data: [
+                        10,15,16,50,{
+                                     value:296,
+                                        itemStyle: {
+                                            color: '#c23531',
+                                        }
+                             },4,13,15,30,18,10,0]
+                     },
+                 ]
+             };;
+            if (option && typeof option === "object") {
+                myChart.setOption(option, true);
+            }
+       </script>
+   </body>
+</html>
